@@ -28,9 +28,11 @@ public class PlayerMove : MonoBehaviour
         if(horizontal == 0 && vertical == 0)
         {
             rb.linearVelocity = Vector2.zero;
+            anim.SetBool("isRun", false);
             return;
         }
 
+        anim.SetBool("isRun", true);
         dir = new Vector2(horizontal, vertical);
         rb.linearVelocity = dir * speed * Time.fixedDeltaTime;
     }
