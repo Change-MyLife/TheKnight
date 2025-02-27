@@ -56,10 +56,12 @@ public class PlayerMove : MonoBehaviour
         ChanageState(PlayerState.MOVE);
         dir = new Vector2(horizontal, vertical);
 
+        // 공격시 정지
+        if (isAttack) return;
+
         anim.SetFloat("MoveX", dir.x);
         anim.SetFloat("MoveY", dir.y);
 
-        if (isAttack) return;
         rb.linearVelocity = dir * speed * Time.fixedDeltaTime;
     }
 
