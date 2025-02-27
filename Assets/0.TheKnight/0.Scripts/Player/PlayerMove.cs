@@ -19,9 +19,9 @@ public class PlayerMove : MonoBehaviour
 
     PlayerState state;
 
-    // °ø°İ µô·¹ÀÌ
+    // ê³µê²© ë”œë ˆì´
     [Range(0.5f, 2.0f)] public float attackDelay = 0.5f;
-    // ÄŞº¸ °¡´É½Ã°£
+    // ì½¤ë³´ ê°€ëŠ¥ì‹œê°„
     public float comboCheckTime = 0.3f;
     float comboTimer = 0;
     int comboCount = 0;
@@ -56,7 +56,7 @@ public class PlayerMove : MonoBehaviour
         ChanageState(PlayerState.MOVE);
         dir = new Vector2(horizontal, vertical);
 
-        // °ø°İ½Ã Á¤Áö
+        // ê³µê²©ì‹œ ì •ì§€
         if (isAttack) return;
 
         anim.SetFloat("MoveX", dir.x);
@@ -99,7 +99,7 @@ public class PlayerMove : MonoBehaviour
         {
             ChanageState(PlayerState.ATTACK);
 
-            // ÄŞº¸ Å¸ÀÌ¹Ö = ÄŞº¸Å¸ÀÌ¸ÓÀÇ 30% ~ ÄŞº¸Å¸ÀÌ¸Ó || ÄŞº¸ È½¼ö = 0,1,2
+            // ì½¤ë³´ íƒ€ì´ë° = ì½¤ë³´íƒ€ì´ë¨¸ì˜ 30% ~ ì½¤ë³´íƒ€ì´ë¨¸ || ì½¤ë³´ íšŸìˆ˜ = 0,1
             if(comboTimer < comboCheckTime && comboTimer > (comboCheckTime * 0.3f) && comboCount < 1)
             {
                 isCombo = true;
@@ -110,7 +110,7 @@ public class PlayerMove : MonoBehaviour
 
         if(isAttack)
         {
-            // °ø°İÁ¾·á
+            // ê³µê²©ì¢…ë£Œ
             if(attackTimer >= attackDelay)
             {
                 if(isCombo)
