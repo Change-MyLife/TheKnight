@@ -29,6 +29,9 @@ public class PlayerMove : MonoBehaviour
     bool isAttack = false;
     bool isCombo = false;
 
+    [Header("Effect Manager Script")]
+    [SerializeField] EffectManager effectManager;
+
     private void Awake()
     {
         rb = transform.GetComponent<Rigidbody2D>();
@@ -88,6 +91,7 @@ public class PlayerMove : MonoBehaviour
                     anim.SetTrigger("Attack");
                     rb.linearVelocity = Vector2.zero;
                     isAttack = true;
+                    effectManager.Effect_ON(Effect.Melee);
                 }
                 break;
         }
